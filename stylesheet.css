@@ -12,6 +12,12 @@
 	display: flex;
 }
 
+
+body {
+	background-color: black;
+	color: white;
+}
+
 .btn {
 	display: inline-block;
 	margin: 10px 125px 0 50px;
