@@ -97,8 +97,8 @@ function buyProduct(price) {
     alert("You don't have enough money! (GET A JOB!)")
   }
   else{
-    var output = (cash -= price) / 100
-    $('#cashOutput').text(output);
+    var output = (cash -= price) / 100;
+    $('#cashOutput').text(output.toFixed(2));
   }
 }
 
