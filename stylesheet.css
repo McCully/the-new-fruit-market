@@ -1,0 +1,46 @@
+
+.container {
+	display: flex;
+}
+
+.count {
+	margin: 0 120px 0 0;
+}
+
+
+.ctn {
+	display: flex;
+}
+
+.btn {
+	display: inline-block;
+	margin: 10px 125px 0 50px;
+}
+
+#apple {
+	background-image: url("http://aamodtsapplefarm.com.s132576.gridserver.com/wp-content/uploads/2011/09/honeycrisp-apples.jpg");
+	height: 200px;
+	width: 200px;
+}
+
+#orange {
+	
+	/*background-color: orange;*/
+	background: url("orange.jpg") top left;
+	background-size: 200px 200px;
+	height: 200px;
+	width: 200px;
+	/*background-position: top left;*/
+}
+
+#banana {
+	background-image: url("http://aamodtsapplefarm.com.s132576.gridserver.com/wp-content/uploads/2011/09/honeycrisp-apples.jpg");
+	height: 200px;
+	width: 200px;
+}
+
+#grape {
+	background-image: url("http://aamodtsapplefarm.com.s132576.gridserver.com/wp-content/uploads/2011/09/honeycrisp-apples.jpg");
+	height: 200px;
+	width: 200px;
+}
