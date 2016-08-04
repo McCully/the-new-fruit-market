@@ -1,18 +1,21 @@
-
-function Customer(cash){
-  this.cash = cash;
-  this.apple = 0;
-  this.oranges = 0;
-  this.bananas = 0;
-  this.pears = 0;
-}
-
-
 $(document).ready(function(){
   var fruit = ["apples" , "oranges" , "bananas" , "pears"];
   var totalCash = 20;
 
   var c = new Customer(totalCash);
+
+  // initial price shown on DOM
+  $('#applePrice').empty();
+  $('#applePrice').append("$" + (productPrices.apple/100).toFixed(2));
+
+  $('#orangePrice').empty();
+  $('#orangePrice').append("$" + (productPrices.orange/100).toFixed(2));
+
+  $('#bananaPrice').empty();
+  $('#bananaPrice').append("$" + (productPrices.banana/100).toFixed(2));
+
+  $('#pearPrice').empty();
+  $('#pearPrice').append("$" + (productPrices.pear/100).toFixed(2));
 
   // Store customer data.
   $('.container').data("info", c)
@@ -30,15 +33,15 @@ $(document).ready(function(){
   		    break;
   		case 'o':
   		    customerInfo.oranges += 1;
-  		    $('#orangeCount').text(customerInfo.apple)
+  		    $('#orangeCount').text(customerInfo.oranges)
   		    break;
   		case 'b':
   		    customerInfo.bananas += 1;
-  		    $('#bananaCount').text(customerInfo.apple)
+  		    $('#bananaCount').text(customerInfo.bananas)
   		    break;
   		case 'p':
   		    customerInfo.pears += 1;
-  		    $('#pearCount').text(customerInfo.apple)
+  		    $('#pearCount').text(customerInfo.pears)
   		    break;
   	}
 
@@ -48,7 +51,19 @@ $(document).ready(function(){
   setInterval(function() {    // 15 second delay
   priceShift();
   console.log(productPrices.apple);
-}, 1000);
+
+  $('#applePrice').empty();
+  $('#applePrice').append("$" + (productPrices.apple/100).toFixed(2));
+
+  $('#orangePrice').empty();
+  $('#orangePrice').append("$" + (productPrices.orange/100).toFixed(2));
+
+  $('#bananaPrice').empty();
+  $('#bananaPrice').append("$" + (productPrices.banana/100).toFixed(2));
+
+  $('#pearPrice').empty();
+  $('#pearPrice').append("$" + (productPrices.pear/100).toFixed(2));
+}, 15000);
 });
 
 var productPrices = {
@@ -57,6 +72,7 @@ var productPrices = {
   banana: 0,
   pears: 0
 };
+
 var cashOnHand = 100000;
 
 function Customer(cash){
@@ -68,7 +84,7 @@ function Customer(cash){
 }
 
 function buyProduct() {
-  var productPrice; //Price of product clicked on ($(this).id......);
+  var productPrice;
   if (poductPrice > cashOnHand){
     alert("You don't have enough money! (GET A JOB!)")
   }
