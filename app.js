@@ -70,7 +70,7 @@ $(document).ready(function(){
   $('#bananaPrice').append("$" + (productPrices.banana/100).toFixed(2));
 
   $('#pearPrice').empty();
-  $('#pearPrice').append("$" + (productPrices.pear/100).toFixed(2));
+  $('#pearPrice').append("$" + (productPrices.pears/100).toFixed(2));
 }, 15000);
 });
 
