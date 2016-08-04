@@ -1,8 +1,7 @@
 $(document).ready(function(){
   var fruit = ["apples" , "oranges" , "bananas" , "pears"];
-  var totalCash = 20;
 
-  var c = new Customer(totalCash);
+  var c = new Customer();
 
   // initial price shown on DOM
   $('#applePrice').empty();
@@ -15,7 +14,7 @@ $(document).ready(function(){
   $('#bananaPrice').append("$" + (productPrices.banana/100).toFixed(2));
 
   $('#pearPrice').empty();
-  $('#pearPrice').append("$" + (productPrices.pear/100).toFixed(2));
+  $('#pearPrice').append("$" + (productPrices.pears/100).toFixed(2));
 
   // Store customer data.
   $('.container').data("info", c)
@@ -28,18 +27,27 @@ $(document).ready(function(){
 
   	switch(this.id) {
   		case 'a':
+          var price = productPrices.apple;
+          buyProduct(price)
   		    customerInfo.apple += 1;
   		    $('#appleCount').text(customerInfo.apple)
   		    break;
   		case 'o':
+          var price = productPrices.orange;
+          buyProduct(price)
   		    customerInfo.oranges += 1;
   		    $('#orangeCount').text(customerInfo.oranges)
   		    break;
   		case 'b':
+          var price = productPrices.banana;
+          buyProduct(price)
   		    customerInfo.bananas += 1;
   		    $('#bananaCount').text(customerInfo.bananas)
   		    break;
   		case 'p':
+          var price = productPrices.pears;
+          console.log("Price: ", price)
+          buyProduct(price)
   		    customerInfo.pears += 1;
   		    $('#pearCount').text(customerInfo.pears)
   		    break;
@@ -73,24 +81,24 @@ var productPrices = {
   pears: 0
 };
 
-var cashOnHand = 100000;
-
-function Customer(cash){
-  this.cash = cash;
+function Customer(){
   this.apple = 0;
   this.oranges = 0;
   this.bananas = 0;
   this.pears = 0;
 }
 
-function buyProduct() {
-  var productPrice;
-  if (poductPrice > cashOnHand){
+function buyProduct(price) {
+  var cash = $('#cashOutput').text()
+  cash = cash * 100;
+  cash.toFixed(2);
+
+  if (price > cash){
     alert("You don't have enough money! (GET A JOB!)")
   }
   else{
-    // Item clicked on +1
-    //cashOnHand -= productPrice;
+    var output = (cash -= price) / 100
+    $('#cashOutput').text(output);
   }
 }
 
@@ -98,7 +106,7 @@ function initialPrice() {
     productPrices.apple = initialGen();
      productPrices.orange = initialGen();
      productPrices.banana = initialGen();
-     productPrices.pear = initialGen();
+     productPrices.pears = initialGen();
        function initialGen() {
        var min = 50
        var max = 999
@@ -127,7 +135,7 @@ function priceShuft(currentPrice){ // changes the price of a single item
    productPrices.apple = priceShuft(productPrices.apple);
    productPrices.orange = priceShuft(productPrices.orange);
    productPrices.banana = priceShuft(productPrices.banana);
-   productPrices.pear = priceShuft(productPrices.pear);
+   productPrices.pears = priceShuft(productPrices.pears);
 }
 
 function randomNumber(min, max){
