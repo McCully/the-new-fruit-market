@@ -4,16 +4,16 @@ $(document).ready(function(){
   var c = new Customer();
 
   // initial price shown on DOM
-  $('#applePrice').empty();
+  // $('#applePrice').empty();
   $('#applePrice').append("$" + (productPrices.apple/100).toFixed(2));
 
-  $('#orangePrice').empty();
+  // $('#orangePrice').empty();
   $('#orangePrice').append("$" + (productPrices.orange/100).toFixed(2));
 
-  $('#bananaPrice').empty();
+  // $('#bananaPrice').empty();
   $('#bananaPrice').append("$" + (productPrices.banana/100).toFixed(2));
 
-  $('#pearPrice').empty();
+  // $('#pearPrice').empty();
   $('#pearPrice').append("$" + (productPrices.pears/100).toFixed(2));
 
   // Store customer data.
